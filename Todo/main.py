@@ -16,7 +16,7 @@ app.include_router(todos.router)
 app.include_router(users.router)
 app.include_router(
     company_apis.router,
-    prefix='/companyapis',
+    prefix='/company_apis',
     tags=['companyapis'],
     dependencies=[Depends(dependencies.get_token_header)],
     responses={418:{'description': 'Internal Use Only'}}
