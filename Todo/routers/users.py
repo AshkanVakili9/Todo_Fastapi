@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends
 import models
 from database import engine, SessionLocal
 from sqlalchemy.orm import Session
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from .auth import get_current_user, get_user_exception, verify_password, get_password_hash
 
 
@@ -29,7 +29,7 @@ def get_db():
 
 
 class UserVerification(BaseModel):
-    username: str
+    username: str = Field()
     password: str
     new_password: str
 
