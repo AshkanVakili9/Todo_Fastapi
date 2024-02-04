@@ -2,5 +2,11 @@ version: '3'
 
 services:
   backend:
-    build: .
+    build: 
+      context: ./Todo
+    container_name: Todo-fast
+    restart: always
+    expose:
+      - 8000
+    command: uvicorn main:app --relaod 
     

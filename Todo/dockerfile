@@ -1,17 +1,17 @@
-FROM python:3.13.0a3-alpine3.18
+FROM python:3.11
 
 LABEL maintainer="NoobstrGTR"
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
-COPY . /backend
 WORKDIR /backend
 
 COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt && \
-    pip install --upgrade pip
+RUN venv/bin/pip install --no-cache-dir -r requirements.txt && \
+    venv/bin/pip install --upgrade pip
 
+COPY . /backend
 
 EXPOSE 8000
 
